@@ -1,11 +1,81 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>JoySnack – Snack Paradise</title>
+    <link rel="stylesheet" href="assets/style.css" />
+    <script defer src="assets/app.js"></script>
   </head>
-  <body>     
-    </p>
+  <body>
+    <div class="page">
+      <header class="header">
+        <div class="container header-inner">
+          <a class="brand" href="index.html">
+            <span class="brand-badge" aria-hidden="true"></span>
+            <span>JoySnack</span>
+          </a>
+
+          <nav class="nav">
+            <a href="products.html">Products</a>
+            <a href="#about">About</a>
+            <a class="cart-pill" href="cart.html">
+              <span>Cart</span>
+              <span class="cart-count" data-cart-count>0</span>
+            </a>
+          </nav>
+        </div>
+      </header>
+
+      <main>
+        <div class="container">
+          <section class="hero" style="padding: 60px 0">
+            <div>
+              <h1 style="font-size: 48px; font-weight: 800">
+                Your favorite snacks.
+                <br />Delivered fast.
+              </h1>
+              <p class="lead" style="margin-top: 14px">
+                Discover premium chocolate and sweet treats.
+              </p>
+              <div class="row" style="margin-top: 20px">
+                <a class="btn" href="products.html">Browse products</a>
+              </div>
+            </div>
+          </section>
+
+          <div class="section-title">
+            <h2>Top picks for you</h2>
+          </div>
+
+          <section class="grid product-grid" data-products-grid></section>
+          <section id="about" class="card card-pad" style="margin-top: 60px">
+            <h2>About JoySnack</h2>
+            <p class="lead">
+              JoySnack is a Swedish snack shop focused on premium chocolate and
+              sweet treats. We deliver fast and carefully selected favourites
+              across Sweden.
+            </p>
+          </section>
+        </div>
+      </main>
+
+      <footer class="footer">
+        <div class="container footer-inner">
+          <div class="small">
+            <strong>JoySnack</strong><br />
+            📍 Jönköping, Sweden<br />
+            ✉️ snackparadise@joysnack.se<br />
+            ☎️ +46 18 999 08 28
+          </div>
+
+          <div class="small footer-right">
+            <strong>Delivery</strong><br />
+            1–3 business days<br />
+            Free shipping from 300 kr<br />
+          </div>
+        </div>
+      </footer>
+    </div>
   </body>
 </html>
