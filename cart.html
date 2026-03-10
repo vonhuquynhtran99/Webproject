@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>JoySnack - Cart</title>
+    <link rel="stylesheet" href="assets/style.css" />
+    <script defer src="assets/app.js"></script>
+  </head>
+  <body>
+    <div class="page">
+      <header class="header">
+        <div class="container header-inner">
+          <a class="brand" href="index.html">
+            <span class="brand-badge"></span>
+            <span>JoySnack</span>
+          </a>
+
+          <nav class="nav">
+            <a href="products.html">Products</a>
+            <a class="cart-pill" href="cart.html">
+              <span>Cart</span>
+              <span class="cart-count" data-cart-count>0</span>
+            </a>
+          </nav>
+        </div>
+      </header>
+
+      <main>
+        <div class="container">
+          <section class="section-title">
+            <h2>Cart</h2>
+            <p>Add, remove or change quantity</p>
+          </section>
+
+          <div class="empty-cart" data-cart-empty style="display: none">
+            <strong>Cart is empty.</strong>
+            <p>Let's add your favorite snack now.</p>
+            <a class="btn" href="products.html">Browse products</a>
+          </div>
+
+          <div class="table-wrap">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>Product</th>
+                  <th>Unit price</th>
+                  <th>Quantity</th>
+                  <th>Subtotal</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody data-cart-body></tbody>
+            </table>
+          </div>
+
+          <div class="cart-bottom">
+            <a class="btn" href="products.html">Shop more</a>
+
+            <div class="total-box">
+              <div>Total</div>
+              <div class="price big-price" data-cart-total>0 kr</div>
+              <button class="btn" onclick="alert('Front-end demo only')">
+                Checkout
+              </button>
+            </div>
+          </div>
+        </div>
+      </main>
+
+      <footer class="footer">
+        <div class="container footer-inner">
+          <div>
+            <strong>JoySnack</strong><br />
+            Jönköping, Sweden<br />
+            snackparadise@joysnack.se<br />
+            +46 18 999 08 28
+          </div>
+
+          <div class="footer-right">
+            <strong>Delivery</strong><br />
+            1-3 business days<br />
+            Free shipping from 300 kr
+          </div>
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>
