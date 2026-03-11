@@ -4,7 +4,7 @@ const PRODUCTS = [
     name: "Chocolate Dark 72%",
     price: 24.95,
     unit: "100g",
-    image: "PhotoProducts/darkchocolate.jpg",
+    image: "img/darkchocolate.jpg",
     tags: ["dark chocolate"],
     desc: "Dark chocolate with a round and rich chocolate flavor and a full-bodied character. Cocoa content 72%.",
     nutrition: {
@@ -21,7 +21,7 @@ const PRODUCTS = [
     name: "Biscuit chocolate Cloetta",
     price: 9.5,
     unit: "60g",
-    image: "PhotoProducts/kex.JPG",
+    image: "img/kex.JPG",
     tags: ["biscuit", "chocolate"],
     desc: "Crispy layered wafers coated in rich chocolate.",
     nutrition: {
@@ -38,7 +38,7 @@ const PRODUCTS = [
     name: "Chocolate pralines Milk chocolate",
     price: 57.95,
     unit: "150g",
-    image: "PhotoProducts/fazer.jpg",
+    image: "img/fazer.jpg",
     tags: ["milk chocolate", "blueberry", "raspberry"],
     desc: "Finnish milk chocolate with sweetness, creamy finish with raspberry yoghurt and blueberry truffle.",
     nutrition: {
@@ -55,7 +55,7 @@ const PRODUCTS = [
     name: "Ferrero Rocher",
     price: 64.95,
     unit: "16 pieces",
-    image: "PhotoProducts/ferrero.jpg",
+    image: "img/ferrero.jpg",
     tags: ["hazelnut", "chocolate", "wafer"],
     desc: "Whole hazelnut center, smooth hazelnut cream, crisp wafer shell, and chocolate coating with nut pieces.",
     nutrition: {
@@ -72,7 +72,7 @@ const PRODUCTS = [
     name: "KitKat 4-finger Nestle",
     price: 8.95,
     unit: "41.5g",
-    image: "PhotoProducts/kitkat.jpg",
+    image: "img/kitkat.jpg",
     tags: ["wafer", "chocolate", "biscuit"],
     desc: "Crisp wafer fingers coated in smooth milk chocolate.",
     nutrition: {
@@ -89,7 +89,7 @@ const PRODUCTS = [
     name: "Chocolate cake LES GRANDES Milk Chocolate Hazelnut",
     price: 14.95,
     unit: "38g",
-    image: "PhotoProducts/lindtstick.jpg",
+    image: "img/lindtstick.jpg",
     tags: ["milk chocolate", "pistachio"],
     desc: "Premium Swiss milk chocolate with pistachio.",
     nutrition: {
@@ -106,7 +106,7 @@ const PRODUCTS = [
     name: "Marabou Oreo",
     price: 27.95,
     unit: "160g",
-    image: "PhotoProducts/marabou.jpg",
+    image: "img/marabou.jpg",
     tags: ["milk chocolate", "oreo"],
     desc: "Swedish milk chocolate with Oreo and rich cocoa flavor.",
     nutrition: {
@@ -123,7 +123,7 @@ const PRODUCTS = [
     name: "Milka strawberry",
     price: 19,
     unit: "100g",
-    image: "PhotoProducts/milka.jpg",
+    image: "img/milka.jpg",
     tags: ["milk chocolate", "strawberry"],
     desc: "Creamy Alpine milk chocolate with strawberry flavor.",
     nutrition: {
