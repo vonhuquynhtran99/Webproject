@@ -136,3 +136,40 @@ const PRODUCTS = [
     },
   },
 ];
+
+function formatCurrency(number) {
+  return new Intl.NumberFormat("sv-SE", {
+    style: "currency",
+    currency: "SEK",
+  }).format(number);
+}
+
+function getCart() {
+  return JSON.parse(localStorage.getItem("cart") || "{}");
+}
+
+function saveCart(cart) {
+  localStorage.setItem("cart", JSON.stringify(cart));
+  updateCartCount();
+}
+
+function updateCartCount() {
+  const cart = getCart();
+  const count = Object.values(cart).reduce((total, qty) => total + qty, 0);
+  const cartCount = document.querySelector("[data-cart-count]");
+  if (cartCount) {
+    cartCount.textContent = count;
+  }
+}
+
+function addToCart(id) {
+  const cart = getCart();
+  cart[id] = (cart[id] || 0) + 1;
+  saveCart(cart);
+}
+
+function removeFromCart(id) {
+  const cart = getCart();
+  delete cart[id];
+  saveCart(cart);
+}
