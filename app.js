@@ -173,3 +173,22 @@ function removeFromCart(id) {
   delete cart[id];
   saveCart(cart);
 }
+
+function setQuantity(id, qty) {
+  const cart = getCart();
+  if (qty <= 0) {
+    delete cart[id];
+  } else {
+    cart[id] = qty;
+  }
+  saveCart(cart);
+}
+
+function findProduct(id) {
+  return PRODUCTS.find((product) => product.id === id);
+}
+
+function renderProductsGrid(selector) {
+  const container = document.querySelector(selector);
+  if (!container) return;
+}
