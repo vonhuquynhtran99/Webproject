@@ -162,3 +162,110 @@ main {
   border-radius: 999px;
   font-size: 14px;
 }
+
+.btn {
+  background: #b08968;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  padding: 10px 14px;
+}
+
+.btn:hover {
+  filter: brightness(1.05);
+}
+
+.btn-danger {
+  background: #f3ede4;
+  color: #4a3426;
+  border: 1px solid #b08968;
+}
+
+.about {
+  margin-top: 50px;
+  padding: 20px;
+  border: 1px solid #00000014;
+  background: #faf4ec;
+  border-radius: 12px;
+}
+
+.detail {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 18px;
+}
+
+.detail-media {
+  min-height: 280px;
+  display: grid;
+  place-items: center;
+  background: #fff1e6;
+  border-radius: 12px;
+}
+
+.detail-box {
+  background: #faf4ec;
+  border: 1px solid #00000014;
+  border-radius: 12px;
+  padding: 18px;
+}
+
+.nutrition-box {
+  margin-top: 20px;
+  padding: 16px;
+  border: 1px solid #00000014;
+  border-radius: 12px;
+  background: #fffaf5;
+}
+
+.table-wrap {
+  overflow: auto;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  border: 1px solid #00000014;
+  background: #faf4ec;
+}
+
+.table th,
+.table td {
+  text-align: left;
+  padding: 12px;
+  border-bottom: 1px solid #00000014;
+}
+
+.qty {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 6px 10px;
+  border: 1px solid #00000014;
+  border-radius: 10px;
+}
+
+.cart-thumb {
+  width: 42px;
+  height: 42px;
+  object-fit: cover;
+  border-radius: 12px;
+  border: 1px solid #00000014;
+  background: #fff1e6;
+}
+
+.empty-cart {
+  padding: 20px;
+  border: 1px solid #00000014;
+  border-radius: 12px;
+  background: #faf4ec;
+  margin-bottom: 20px;
+}
+
+.cart-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-top: 20px;
+  gap: 20px;
+}
