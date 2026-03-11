@@ -112,3 +112,53 @@ main {
   color: #7a7a7a;
   margin-bottom: 20px;
 }
+
+.section-title {
+  margin: 20px 0;
+}
+
+.grid {
+  display: grid;
+  gap: 18px;
+}
+
+.product-grid {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.product {
+  border: 1px solid #00000014;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #faf4ec;
+}
+
+.product-media {
+  background: #fff1e6;
+}
+
+.product-body {
+  padding: 14px;
+}
+
+.row {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.muted {
+  color: #7a7a7a;
+}
+
+.price {
+  font-weight: bold;
+}
+
+.pill {
+  padding: 6px 10px;
+  border: 1px solid #00000014;
+  border-radius: 999px;
+  font-size: 14px;
+}
