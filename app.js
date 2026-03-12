@@ -191,10 +191,9 @@ function findProduct(id) {
 function renderProductsGrid(selector) {
   const container = document.querySelector(selector);
   if (!container) return;
-}
 
-container.innerHTML = PRODUCTS.map(
-  (product) => `
+  container.innerHTML = PRODUCTS.map(
+    (product) => `
     <article class="product">
       <a href="product.html?id=${product.id}" class="product-media">
         <img src="${product.image}" alt="${product.name}" style="width:100%; height:160px; object-fit:cover;">
@@ -221,13 +220,14 @@ container.innerHTML = PRODUCTS.map(
       </div>
     </article>
   `,
-).join("");
+  ).join("");
 
-container.querySelectorAll("[data-add]").forEach((button) => {
-  button.addEventListener("click", () => {
-    addToCart(button.getAttribute("data-add"));
+  container.querySelectorAll("[data-add]").forEach((button) => {
+    button.addEventListener("click", () => {
+      addToCart(button.getAttribute("data-add"));
+    });
   });
-});
+}
 
 function renderProductDetail() {
   const container = document.querySelector("[data-product-detail]");
@@ -301,3 +301,95 @@ function renderProductDetail() {
     addToCart(product.id);
   });
 }
+
+function renderCart() {
+  const body = document.querySelector("[data-cart-body]");
+  const total = document.querySelector("[data-cart-total]");
+  const empty = document.querySelector("[data-cart-empty]");
+  if (!body || !total) return;
+
+  const cart = getCart();
+  const items = Object.entries(cart)
+    .map(([id, qty]) => {
+      const product = findProduct(id);
+      return product ? { ...product, qty } : null;
+    })
+    .filter(Boolean);
+
+  if (items.length === 0) {
+    body.innerHTML = "";
+    total.textContent = formatCurrency(0);
+    if (empty) empty.style.display = "block";
+    return;
+  }
+
+  if (empty) empty.style.display = "none";
+
+  let totalPrice = 0;
+
+  body.innerHTML = items
+    .map((item) => {
+      const linePrice = item.price * item.qty;
+      totalPrice += linePrice;
+
+      return `
+      <tr>
+        <td>
+          <div class="row">
+            <img class="cart-thumb" src="${item.image}" alt="${item.name}">
+            <div>
+              <strong>${item.name}</strong>
+              <div class="muted">${item.unit}</div>
+            </div>
+          </div>
+        </td>
+        <td>${formatCurrency(item.price)}</td>
+        <td>
+          <span class="qty">
+            <button class="btn" data-dec="${item.id}">-</button>
+            <strong>${item.qty}</strong>
+            <button class="btn" data-inc="${item.id}">+</button>
+          </span>
+        </td>
+        <td><strong>${formatCurrency(linePrice)}</strong></td>
+        <td>
+          <button class="btn btn-danger" data-remove="${item.id}">Remove</button>
+        </td>
+      </tr>
+    `;
+    })
+    .join("");
+  total.textContent = formatCurrency(totalPrice);
+
+  body.querySelectorAll("[data-remove]").forEach((button) => {
+    button.addEventListener("click", () => {
+      removeFromCart(button.getAttribute("data-remove"));
+      renderCart();
+    });
+  });
+
+  body.querySelectorAll("[data-inc]").forEach((button) => {
+    button.addEventListener("click", () => {
+      const id = button.getAttribute("data-inc");
+      const cart = getCart();
+      setQuantity(id, (cart[id] || 0) + 1);
+      renderCart();
+    });
+  });
+
+  body.querySelectorAll("[data-dec]").forEach((button) => {
+    button.addEventListener("click", () => {
+      const id = button.getAttribute("data-dec");
+      const cart = getCart();
+      setQuantity(id, (cart[id] || 0) - 1);
+      renderCart();
+    });
+  });
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  updateCartCount();
+  renderProductsGrid("[data-products-grid]");
+  renderProductDetail();
+  renderCart();
+});
