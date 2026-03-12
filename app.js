@@ -192,3 +192,112 @@ function renderProductsGrid(selector) {
   const container = document.querySelector(selector);
   if (!container) return;
 }
+
+container.innerHTML = PRODUCTS.map(
+  (product) => `
+    <article class="product">
+      <a href="product.html?id=${product.id}" class="product-media">
+        <img src="${product.image}" alt="${product.name}" style="width:100%; height:160px; object-fit:cover;">
+      </a>
+
+      <div class="product-body">
+        <div class="row" style="justify-content:space-between;">
+          <a href="product.html?id=${product.id}">
+            <strong>${product.name}</strong>
+          </a>
+          <span class="price">${formatCurrency(product.price)}</span>
+        </div>
+
+        <div class="muted">${product.unit}</div>
+
+        <div class="row">
+          ${product.tags.map((tag) => `<span class="pill">${tag}</span>`).join("")}
+        </div>
+
+        <div class="row" style="margin-top:10px;">
+          <a class="btn" href="product.html?id=${product.id}">More information</a>
+          <button class="btn" data-add="${product.id}">Add to cart</button>
+        </div>
+      </div>
+    </article>
+  `,
+).join("");
+
+container.querySelectorAll("[data-add]").forEach((button) => {
+  button.addEventListener("click", () => {
+    addToCart(button.getAttribute("data-add"));
+  });
+});
+
+function renderProductDetail() {
+  const container = document.querySelector("[data-product-detail]");
+  if (!container) return;
+
+  const params = new URLSearchParams(window.location.search);
+  const id = params.get("id") || "darkchocolate";
+  const product = findProduct(id) || PRODUCTS[0];
+
+  container.innerHTML = `
+    <section class="detail">
+      <div class="detail-media">
+        <img src="${product.image}" alt="${product.name}" style="max-height:300px; object-fit:cover;">
+      </div>
+
+      <div class="detail-box">
+        <div class="muted">Chocolate / ${product.unit}</div>
+        <h1>${product.name}</h1>
+        <p>${product.desc}</p>
+
+        <div class="row">
+          ${product.tags.map((tag) => `<span class="pill">${tag}</span>`).join("")}
+        </div>
+
+        <div class="row" style="justify-content:space-between; margin-top:20px;">
+          <div>
+            <div class="muted">Price</div>
+            <div class="price" style="font-size:24px;">${formatCurrency(product.price)}</div>
+          </div>
+
+          <div class="row">
+            <button class="btn" data-add="${product.id}">Add to cart</button>
+            <a class="btn" href="cart.html">Go to cart</a>
+          </div>
+        </div>
+
+        <div class="nutrition-box">
+          <strong>Nutritional value per 100g</strong>
+          <p class="muted">Values are approximate.</p>
+
+          <div class="row" style="justify-content:space-between;">
+            <span>Energy</span>
+            <strong>${product.nutrition.Energy} kcal</strong>
+          </div>
+          <div class="row" style="justify-content:space-between;">
+            <span>Fat</span>
+            <strong>${product.nutrition.Fat} g</strong>
+          </div>
+          <div class="row" style="justify-content:space-between;">
+            <span>Carbohydrate</span>
+            <strong>${product.nutrition.Carbohydrate} g</strong>
+          </div>
+          <div class="row" style="justify-content:space-between;">
+            <span>Sugars</span>
+            <strong>${product.nutrition.Sugars} g</strong>
+          </div>
+          <div class="row" style="justify-content:space-between;">
+            <span>Protein</span>
+            <strong>${product.nutrition.Protein} g</strong>
+          </div>
+          <div class="row" style="justify-content:space-between;">
+            <span>Salt</span>
+            <strong>${product.nutrition.Salt} g</strong>
+          </div>
+        </div>
+      </div>
+    </section>
+  `;
+
+  container.querySelector("[data-add]").addEventListener("click", () => {
+    addToCart(product.id);
+  });
+}
